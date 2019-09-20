@@ -1,5 +1,8 @@
 function IMEI2(imei1) {
 
+  //only takes digits
+  if (/[^0-9-\s]+/.test(imei1)) return "";
+
   var odd_sum = 0;
   var even_sum = 0;
   var imei2 = '';

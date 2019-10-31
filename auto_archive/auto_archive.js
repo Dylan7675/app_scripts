@@ -16,10 +16,9 @@ function archiveTasks() {
     //Plus 2 for header offset
     for (var row = is_created_range.getLastRow(); row > 0; row--){
       if (is_completed[row] == "true"){
-
+        task_sheets[i].getRange(row+2,1).setFormula("=now()");
         var completed_range = task_sheets[i].getRange(row+2,1, 1, task_sheets[i].getLastColumn());
         var completed_values = completed_range.getValues();
-
         archive.appendRow(completed_values[0]);
         task_sheets[i].deleteRow(row + 2);
       }
